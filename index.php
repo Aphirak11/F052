@@ -160,6 +160,8 @@ border-radius:.375rem;
                     $_SESSION['role'] ?>)</span>
                     <a href="profile.php" class="btn btn-info">ข้อมูลส่วนตัว</a>
                     <a href="cart.php" class="btn btn-warning">ดูตะกร้า</a>
+                    <a href="orders.php" class="btn btn-primary">ดูประวัติการสั่งซื้อ</a>
+                    <a href="orders.php" class="btn btn-primary">จัดการตำสั่ซื้อ</a>
                     <a href="logout.php" class="btn btn-secondary">ออกจากระบบ</a>
                     <?php else: ?>
                     <a href="login.php" class="btn btn-success">เข้าสู่ระบบ</a>

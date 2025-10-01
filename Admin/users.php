@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../config';
+require_once '../config.php';
 require_once 'auth_admin.php';
 
 
@@ -16,7 +16,9 @@ header("Location: users.php");
 exit;
 }
 // ดงึขอ้ มลู สมำชกิ
-$stmt = $pdo->prepare("SELECT * FROM users WHERE role = 'member' ORDER BY created_at DESC");
+// แก้ SQL ให้ตรงกับชื่อคอลัมน์จริง
+$stmt = $conn->prepare("SELECT user_id, username, full_name, email, created_at FROM users WHERE role = 'member' ORDER BY created_at DESC");
+
 $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -36,8 +38,8 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <table class="table table-bordered">
             <thead>
                 <tr>
-                <th>ชื่อผู้ใช้</th> ้
-                <th>ชื่อ-นามสกุล</th>s
+                <th>ชื่อผู้ใช้</th>
+                <th>ชื่อ-นามสกุล</th>
                 <th>อีเมล</th>
                 <th>วันที่สมัคร</th>
                 <th>จัดการ</th>
@@ -46,10 +48,10 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <tbody>
                 <?php foreach ($users as $user): ?>
                 <tr>
-                <td><?= htmlspecialchars($user['user_name']) ?></td>
+                <td><?= htmlspecialchars($user['username']) ?></td>
                 <td><?= htmlspecialchars($user['full_name']) ?></td>
                 <td><?= htmlspecialchars($user['email']) ?></td>
-                <td><?= $user['วันที่สร ้ำง'] ?></td>
+                <td><?= $user['created_at'] ?></td>
                 <td>
                 <a href="edit_user.php?id=<?= $user['user_id'] ?>" class="btn btn-sm btn-warning">แก ้ไข
                 </a>

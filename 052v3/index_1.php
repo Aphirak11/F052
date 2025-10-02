@@ -18,7 +18,7 @@ require_once 'auth_admin.php';
     <p class="mb-4">ยินดีต้อนรับ, <?= htmlspecialchars($_SESSION['username']) ?></p>
     <div class="row">
         <div class="col-md-4 mb-3">
-            <a href="users.php" class="btn btn-warning w-100">จัดการสมาชิก</a>
+            <a href="users.php" class="btn btn-warning w-100">รายการนักศึกษา</a>
         </div>
         <div class="col-md-4 mb-3">
             <a a href="categories.php" class="btn btn-dark w-100">จัดกำรหมวดหมู่</a>

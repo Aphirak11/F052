@@ -23,7 +23,7 @@ require_once '../config.php';
         $desc = $_POST['discription'];
 
         try {
-            $sql = "INSERT INTO db6645_044 (std_id, f_name, l_name, mail, tel, discription) 
+            $sql = "INSERT INTO db6646_052 (std_id, f_name, l_name, mail, tel, discription) 
                     VALUES (:std_id, :f_name, :l_name, :mail, :tel, :desc)";
             $stmt = $conn->prepare($sql);
             $stmt->execute([
@@ -63,14 +63,15 @@ require_once '../config.php';
             <input type="text" name="tel" class="form-control" required>
         </div>
         <div class="mb-3">
-            <label class="form-label">หมายเหตุ</label>
+            <label class="form-label">ข้อมูลเพิ่มเติม</label>
             <input type="text" name="discription" class="form-control">
         </div>
-        <button type="submit" class="btn btn-primary">บันทึก</button>
+        <button type="submit" class="btn btn-primary">ยืนยัน</button>
     </form>
 </body>
 
 </html>
+
 
 </tbody>
 </table>
@@ -123,51 +124,3 @@ require_once '../config.php';
 
     }
     ?>
-
-    <div class="container mt-5">
-        <h2 class="mb-4">รายการนักศึกษา</h2>
-
-        <form method="post" class="mb-3">
-            <button type="submit" class="btn btn-primary">+ เพิ่มนักศึกษา</button>
-        </form>
-
-        <table id="productTable" class="table table-bordered table-striped text-center">
-            <thead class="table-dark">
-                <tr>
-                    <th>#</th>
-                    <th>Student ID</th>
-                    <th>Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Number Phone</th>
-                    <th>Created At</th>
-                    <th>Discription</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($filteredProduct as $index => $product): ?>
-                    <tr>
-                        <td><?= $index + 1 ?></td>
-                        <td><?= $product['student id'] ?></td>
-                        <td><?= $product['name'] ?></td>
-                        <td><?= $product['last name'] ?></td>
-                        <td><?= $product['email'] ?></td>
-                        <td><?= $product['number phone'] ?></td>
-                        <td><?= $product['Created At'] ?></td>
-                        <td><?= $product['Discription'] ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
-
-    <script>
-        new DataTable('#productTable');
-    </script>
-</body>
-
-</html>

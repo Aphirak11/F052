@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php';
+require_once '../config.php';
 $error = [];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -172,14 +172,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
                         </div>
 
-                        <div class="mb-4">
-                            <label for="confirm_phone" class="form-label">เบอร์โทรศัพท์</label>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">เบอร์โทรศัพท์</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-light border-end-0">
-                                    <i class="fas fa-check-circle icon-custom"></i>
+                                    <i class="fas fa-envelope icon-custom"></i>
                                 </span>
-                                <input type="password" name="confirm_password" id="confirm_password"
-                                    class="form-control border-start-0" placeholder="099XXXXXXX" required>
+                                <input type="email" name="email" id="email" class="form-control border-start-0"
+                                    placeholder="อีเมล"
+                                    value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>"
+                                    required>
                             </div>
                         </div>
 
